@@ -16,7 +16,7 @@ public class Permits {
     int ID;
     String Status;
     Date date;
-    
+    // method to edit the status of the appointment
         public void editSatus() {
     
 }
