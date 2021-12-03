@@ -13,12 +13,47 @@ import java.util.Date;
  */
 public class Permits {
     
-    int ID;
+    long ID;
     String Status;
-    Date date;
-    // method to edit the status of the appointment
-        public void editSatus() {
-    
+    LocalDateTime dateTime;
+
+    public Permit(long ID, String Status, LocalDateTime dateTime) {
+        this.ID = ID;
+        this.Status = Status;
+        this.dateTime = dateTime;
+    }
+
+    public Permit() {
+    }
+
+    public long getID() {
+        return ID;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public void editSatus(String newStatus) {
+       this.Status=newStatus;
+    }
+
 }
         
 }
