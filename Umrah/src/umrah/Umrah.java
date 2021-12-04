@@ -1,14 +1,41 @@
 
 package umrah;
 
+import java.time.LocalDate;
+import java.util.Scanner;
+
 
 public class Umrah {
 
     /**
      * @param args the command line arguments
      */
+    
+    public static User[] users = new User[10];
+    public static Appointment[] appointments = new Appointment[54];
+    public static User user ;
+
     public static void main(String[] args) {
         // TODO code application logic here
+         Scanner input = new Scanner(System.in);
+        boolean flag = Database.start(users, appointments);
+        if (flag == true)
+        System.out.println("database initialized");
+        else{
+           System.out.println("Error occur");
+           System.exit(0);
+        }
+        
+        System.out.print("enter your id: ");
+        Long entered_id = input.nextLong();
+        
+        System.out.print("\nenter your password: ");
+        String entered_password = input.next();
+        
+        user = User.login(entered_id, entered_password,input);
+        viewSchedule(input);
+       
+
     }
     
     public static void viewSchedule(Scanner input) {
