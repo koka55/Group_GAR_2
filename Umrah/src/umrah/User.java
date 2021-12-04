@@ -58,6 +58,7 @@ public class User extends Person {
 
     public static void edit(User user, LocalDateTime dateTime) {
 //just use the time
+        
     }
 
     public static void cancel(User user, Appointment[] appointments) {
@@ -92,17 +93,40 @@ public class User extends Person {
         return user;
     }
     
-    public void bookAppointment() {
+        public void makeAppointment(Appointment app) {
+        this.setAppointment(app);
+        this.currPermit = new Permit(this.getNational_ID(), "Available", app.getDateTime());
+        this.allPermits.add(currPermit);
+        System.out.println("your Permit date&time is:");
+        System.out.println(this.currPermit.dateTime);
+    }
+
+    public void cancelAppointment(Appointment[] appointments) {
+
+        for (int i = 0; i < appointments.length; i++) {
+            if (this.currPermit.dateTime == appointments[i].getDateTime()) {
+                appointments[i].incCapacity();
+            }
+        }
+        this.currPermit.setStatus("Canceled");
+        this.allPermits.set(this.allPermits.size()-1, this.getCurrPermit());
+        this.currPermit = null;
+        this.appointment = null;
+        
 
     }
 
-    public void CancelAppointment() {
-
+      public void editAppointment(LocalDateTime dateTime) {
+          
+        this.appointment.incCapacity();
+        this.getAppointment().setDateTime(dateTime);
+        this.appointment.setCapacity(this.appointment.getCapacity()-1);
+        this.currPermit.setDateTime(dateTime);
+        this.allPermits.set(this.allPermits.size()-1, this.getCurrPermit());
+        System.out.println("your Permit date&time is:");
+        System.out.println(this.currPermit.dateTime);
     }
-
-    public void editAppointment() {
-
-    }
+    
 
     public void SearchAppointment() {
 
@@ -111,4 +135,17 @@ public class User extends Person {
     public void ShowperviousAppointment() {
 
     }
+        public void DisplayAllPermits() {
+        System.out.println("User ID: " + super.getNational_ID() + "\n"
+                + "User Name: " + super.getFname() + " " + super.getLname());
+        System.out.println("The all Permits :");
+        for (int i = 0; i < allPermits.size(); i++) {
+            System.out.println("Time: " + allPermits.get(i).dateTime + " State: " + allPermits.get(i).getStatus());
+        }
+    }
+    
+ 
+    
+    
+    
 }
