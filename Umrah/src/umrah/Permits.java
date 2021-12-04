@@ -5,7 +5,7 @@
  */
 package umrah;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -50,10 +50,7 @@ public class Permits {
         this.dateTime = dateTime;
     }
 
-    public void editSatus(String newStatus) {
-       this.Status=newStatus;
-    }
-
+   
 }
         
 }
