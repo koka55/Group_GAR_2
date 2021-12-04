@@ -50,7 +50,7 @@ public class Umrah {
                     System.out.println("choose the Time you want:");
                     Num = input.nextInt();
                     Appointment A = appointments[Num-1];
-                    user.make(A);
+                    user.makeAppointment(A);
           //--------------------------------------------------------------          
                 }else{
                     System.out.println("You can only make one reservation at a time\n"
@@ -68,7 +68,7 @@ public class Umrah {
                             + " ,are you sure to cancel this appointment ? enter Yes or No ");
                     String s = input.next();
                     if (s.equalsIgnoreCase("Yes")) {
-                        user.cancel(appointments);
+                        user.cancelAppointment(appointments);
                         System.out.println("Appointment canceled successfully");
                     }
                 }
@@ -93,7 +93,7 @@ public class Umrah {
                     Num = input.nextInt();
                     //--------------------------------------------------------------
 //                    
-                    user.edit(appointments[Num-1].getDateTime());
+                    user.editAppointment(appointments[Num-1].getDateTime());
                     
                 }
                 System.out.print("Enter 5 to more services or 6 to Exit: ");
@@ -104,7 +104,7 @@ public class Umrah {
                 if (user.getAllPermits().isEmpty()) {
                     System.out.println("No Permits you have ");
                 } else {
-                    user.showAll();
+                    user.DisplayAllPermits();
                 }
 
                 System.out.print("Enter 5 to more services or 6 to Exit: ");
