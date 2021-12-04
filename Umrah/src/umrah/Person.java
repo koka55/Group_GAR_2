@@ -10,14 +10,14 @@ package umrah;
  * @author light
  */
 public class Person {
-      this.Fname = Fname;
-        this.Lname = Lname;
-        this.Email = Email;
-        this.Password = Password;
-        this.PhoneNum = PhoneNum;
-        this.National_ID = National_ID;
-    
-    
+
+    String Fname;
+    String Lname;
+    String Email;
+    String Password;
+    long PhoneNum;
+    long National_ID;
+
     public Person(String Fname, String Lname, String Email, String Password, long PhoneNum, long National_ID) {
         this.Fname = Fname;
         this.Lname = Lname;
@@ -25,6 +25,9 @@ public class Person {
         this.Password = Password;
         this.PhoneNum = PhoneNum;
         this.National_ID = National_ID;
+    }
+
+    public Person() {
     }
 
     public void setFname(String Fname) {
@@ -73,5 +76,6 @@ public class Person {
 
     public long getNational_ID() {
         return National_ID;
-    }}
+    }
 }
+
