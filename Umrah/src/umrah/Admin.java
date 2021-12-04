@@ -15,7 +15,7 @@ public class Admin {
 
     }
 
-    public void validate() {
+    public void Login() {
 
     }
     
