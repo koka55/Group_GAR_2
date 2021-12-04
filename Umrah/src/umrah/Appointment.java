@@ -13,28 +13,40 @@ import java.util.Date;
  * @author light
  */
 public class Appointment {
-    Date date;
-    // Time time;
-    int Capacity;
+   
+     private LocalDateTime dateTime;
+    private int Capacity;
 
-    public void bookAppointment() {
+    public Appointment(LocalDateTime dateTime, int Capacity) {
+        this.dateTime = dateTime;
+    this.Capacity = Capacity;
+    
 
+}
+
+    public Appointment() {
     }
 
-    public void CancelAppointment() {
-
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void editAppointment() {
-
+    public int getCapacity() {
+        return Capacity;
     }
 
-    public void SearchAppointment() {
-
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public void ShowperviousAppointment() {
-
+    public void setCapacity(int Capacity) {
+        this.Capacity = Capacity;
+    }
+    
+    public void incCapacity() {
+        this.Capacity++;
     }
 }
+    
+
 
