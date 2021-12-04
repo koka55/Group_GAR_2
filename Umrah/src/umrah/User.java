@@ -16,21 +16,35 @@ public class User extends Person {
         super(Fname, Lname, Email, Password, PhoneNum, National_ID);
     }
 
-    public Permit getPermit() {
+   
+//setters and getters
+    //---------------------------------------------------------------------------------
+    //return the array of all the Permissions.
+    public ArrayList<Permit> getAllPermits() {
+        return allPermits;
+    }
+
+    //set one by one obj to allPermits array list.
+    public void setAllPermits(Permit Permit) {
+        this.allPermits.add(Permit);
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public Permit getCurrPermit() {
         return currPermit;
     }
 
-    public void setPermit(Permit permits) {
-        this.currPermit = permits;
+    public void setCurrPermit(Permit currPermit) {
+        this.currPermit = currPermit;
     }
-
-    public ArrayList<Permit> getPrevPermits() {
-        return prevPermits;
-    }
-
-    public void setPrevPermits(ArrayList<Permit> prevPermits) {
-        this.prevPermits = prevPermits;
-    }
+    
 
     public static User login(Long entered_id, String entered_password, Scanner input) {
         User user = null;
@@ -52,14 +66,9 @@ public class User extends Person {
     }
 //------------------- start main functions
 
-    public static void reserve(User user, LocalDateTime dateTime) {
+   
 
-    }
-
-    public static void edit(User user, LocalDateTime dateTime) {
-//just use the time
-        
-    }
+   
 
     public static void cancel(User user, Appointment[] appointments) {
         LocalDateTime dateTime = user.currPermit.dateTime;
@@ -73,14 +82,10 @@ public class User extends Person {
 
     }
 
-    public void showPrev(LocalDateTime dateTime) {
-        System.out.print(prevPermits.toString());
-    }
+   
 
 //------------------- start main functions
-    public void viewSchedule() {
-//help in printing the schedule to user
-    }
+   
 
     public User isExist(User[] users, Long id) {
         User user = null;
@@ -128,13 +133,7 @@ public class User extends Person {
     }
     
 
-    public void SearchAppointment() {
-
-    }
-
-    public void ShowperviousAppointment() {
-
-    }
+   
         public void DisplayAllPermits() {
         System.out.println("User ID: " + super.getNational_ID() + "\n"
                 + "User Name: " + super.getFname() + " " + super.getLname());
